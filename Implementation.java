@@ -4,6 +4,7 @@ public class Implementation {
 	Scanner scn=new Scanner(System.in);
 public static void main(String[] args)  {
 	Implementation obj=new Implementation("NITHIS KUMAR");
+	System.out.println(obj.charAt(2));
 	System.out.println(obj.length());
 	System.out.println(obj.toCharArray());
 	System.out.println(obj.concat("karthik"));
@@ -16,17 +17,25 @@ public static void main(String[] args)  {
 	System.out.println(obj.endsWith("kumar"));
 	System.out.println(obj.compareTo("nithis kumar"));
 	System.out.println(obj.compareToIgnoreCase("nithis kumar"));
-	System.out.println(obj.charAt(2));
 	System.out.println(obj.substring(1,4));
+	System.out.println(obj.trim());
 	System.out.println(obj.replace(2,'r'));
 	System.out.println(obj.contains("kua"));
-	System.out.println(obj.trim());
 }
 char ch[];
 String str;
 public Implementation(String name) {
 	this.str=name;
 	this.ch=str.toCharArray();
+}
+public char charAt(int a) {
+	int n=str.length();
+	for(int i=0;i<n;i++) {
+		if(i==a) {
+			return ch[i];
+		}
+	}
+	return ' ';
 }
 public int length() {
 	int count=0;
@@ -75,6 +84,7 @@ public String toUpperCase(){
 	}
 	return Upper;
 }
+
 public boolean equals(String s) {
 	if(str==null || s==null){
         return false;
@@ -168,35 +178,12 @@ public int compareToIgnoreCase(String str2){
 	else
 	return len1>len2?1:-1;
 }
-public char charAt(int a) {
-	int n=str.length();
-	for(int i=0;i<n;i++) {
-		if(i==a) {
-			return ch[i];
-		}
-	}
-	return ' ';
-}
 public String substring(int x,int y) {
 	String s="";
 	for(int i=x;i<y;i++) {
 		s+=String.valueOf(str.charAt(i));
 	}
 	return s;
-}
-public String replace(int a,char b){
-	String last=str.substring(0,a) + b + str.substring(a+1);
-	   return last;
-	}
-public boolean contains(String str1) {
-	int n=str1.length();
-	boolean flag=false;
-	for(int i=0;i<str.length();i++) {
-		if(i+n-1<str.length()&&str.substring(i,i+n).equals(str1)) {
-			flag=true;
-		}
-	}
-		return flag;
 }
 public String trim() {
 	String str1="";
@@ -215,5 +202,19 @@ public String trim() {
 		}
 	}
 	return(str.substring(start,end+1));
+}
+public String replace(int a,char b){
+	String last=str.substring(0,a) + b + str.substring(a+1);
+	   return last;
+	}
+public boolean contains(String str1) {
+	int n=str1.length();
+	boolean flag=false;
+	for(int i=0;i<str.length();i++) {
+		if(i+n-1<str.length()&&str.substring(i,i+n).equals(str1)) {
+			flag=true;
+		}
+	}
+		return flag;
 }
 }
