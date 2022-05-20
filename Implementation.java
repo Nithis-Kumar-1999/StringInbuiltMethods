@@ -4,23 +4,23 @@ public class Implementation {
 	Scanner scn=new Scanner(System.in);
 public static void main(String[] args)  {
 	Implementation obj=new Implementation("NITHIS KUMAR");
-	/*System.out.println(obj.length());
+	System.out.println(obj.length());
 	System.out.println(obj.toCharArray());
 	System.out.println(obj.concat("karthik"));
 	System.out.println(obj.isEmpty());
 	System.out.println(obj.toLowerCase());
 	System.out.println(obj.toUpperCase());
+	System.out.println(obj.equals("NITHIS kumar"));
+	System.out.println(obj.equalsIgnoreCase("nithis KUMAR"));
 	System.out.println(obj.startsWith("NITHIS"));
 	System.out.println(obj.endsWith("kumar"));
-	System.out.println(obj.equals("NITHIS kumar"));
-	System.out.println(obj.equalsIgnoreCase("nithis KUMAR"));*/
 	System.out.println(obj.compareTo("nithis kumar"));
 	System.out.println(obj.compareToIgnoreCase("nithis kumar"));
-	/*System.out.println(obj.replace(2,'r'));
-	System.out.println(obj.contains("kua"));
 	System.out.println(obj.charAt(2));
 	System.out.println(obj.substring(1,4));
-	System.out.println(obj.trim());*/
+	System.out.println(obj.replace(2,'r'));
+	System.out.println(obj.contains("kua"));
+	System.out.println(obj.trim());
 }
 char ch[];
 String str;
@@ -75,6 +75,32 @@ public String toUpperCase(){
 	}
 	return Upper;
 }
+public boolean equals(String s) {
+	if(str==null || s==null){
+        return false;
+    }
+    if(str.length()!=s.length())
+        return false;
+    for (int i = 0; i <str.length() ; i++) {
+        if(str.charAt(i)!=s.charAt(i))
+            return false;
+    }
+    return true;
+}
+public boolean equalsIgnoreCase(String s2) {
+	String arr1=str.toUpperCase();
+	String arr2=s2.toUpperCase();
+	if(arr1==null || arr2==null){
+        return false;
+    }
+    if(arr1.length()!=arr2.length())
+        return false;
+    for (int i = 0; i <arr1.length() ; i++) {
+        if(arr1.charAt(i)!=arr2.charAt(i))
+            return false;
+    }
+    return true;
+}
 public boolean startsWith(String substr1) {
 	char ch1[]=substr1.toCharArray();
 	boolean flag=false;
@@ -101,32 +127,6 @@ public boolean endsWith(String substr2) {
 		}
 	}
 	return flag;
-}
-public boolean equals(String s) {
-	if(str==null || s==null){
-        return false;
-    }
-    if(str.length()!=s.length())
-        return false;
-    for (int i = 0; i <str.length() ; i++) {
-        if(str.charAt(i)!=s.charAt(i))
-            return false;
-    }
-    return true;
-}
-public boolean equalsIgnoreCase(String s2) {
-	String arr1=str.toUpperCase();
-	String arr2=s2.toUpperCase();
-	if(arr1==null || arr2==null){
-        return false;
-    }
-    if(arr1.length()!=arr2.length())
-        return false;
-    for (int i = 0; i <arr1.length() ; i++) {
-        if(arr1.charAt(i)!=arr2.charAt(i))
-            return false;
-    }
-    return true;
 }
 public int compareTo(String str1) {
 	char arr1[]=str1.toCharArray();
@@ -168,20 +168,6 @@ public int compareToIgnoreCase(String str2){
 	else
 	return len1>len2?1:-1;
 }
-public String replace(int a,char b){
-	String last=str.substring(0,a) + b + str.substring(a+1);
-	   return last;
-	}
-public boolean contains(String str1) {
-	int n=str1.length();
-	boolean flag=false;
-	for(int i=0;i<str.length();i++) {
-		if(i+n-1<str.length()&&str.substring(i,i+n).equals(str1)) {
-			flag=true;
-		}
-	}
-		return flag;
-}
 public char charAt(int a) {
 	int n=str.length();
 	for(int i=0;i<n;i++) {
@@ -197,6 +183,20 @@ public String substring(int x,int y) {
 		s+=String.valueOf(str.charAt(i));
 	}
 	return s;
+}
+public String replace(int a,char b){
+	String last=str.substring(0,a) + b + str.substring(a+1);
+	   return last;
+	}
+public boolean contains(String str1) {
+	int n=str1.length();
+	boolean flag=false;
+	for(int i=0;i<str.length();i++) {
+		if(i+n-1<str.length()&&str.substring(i,i+n).equals(str1)) {
+			flag=true;
+		}
+	}
+		return flag;
 }
 public String trim() {
 	String str1="";
