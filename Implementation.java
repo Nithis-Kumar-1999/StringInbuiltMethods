@@ -208,13 +208,15 @@ public String replace(int a,char b){
 	   return last;
 	}
 public boolean contains(String str1) {
+	int n=str1.length();
 	char ch1[]=str1.toCharArray();
 	boolean flag=false;
-	for(int i=0;i<ch.length;i++) {
-		for(int j=0;j<ch1.length;j++) {
-		ch[i]=ch1[j];
+	if(str.length()>=str1.length()) {
+	for(int i=0;i<str.length()-n;i++) {
+		if(str.substring(i,i+n).equals(str1)){
 			flag=true;
 		}
+	}
 	}
 		return flag;
 }
