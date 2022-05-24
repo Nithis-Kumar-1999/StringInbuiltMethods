@@ -126,14 +126,11 @@ public boolean startsWith(String substr1) {
 }
 public boolean endsWith(String substr2) {
 	char ch2[]=substr2.toCharArray();
-	boolean flag=false;
+	boolean flag=true;
 	int m=ch.length-ch2.length;
-	for(int i=m;i<substr2.length()+m;i++) {
-		if(ch[i]==ch2[i-m]) {
-			flag=true;
-		}
-		else {
-			return false;
+	for(int i=m;i<str.length();i++) {
+		if(ch[i]!=ch2[i-m]) {
+			flag=false;
 		}
 	}
 	return flag;
